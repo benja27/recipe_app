@@ -11,6 +11,15 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+  <%= form_tag(destroy_user_session_path, method: :delete) do %>
+    <%= submit_tag('Cerrar sesión') %>
+  <% end %>
+<% end %>
+
+    
+   <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
