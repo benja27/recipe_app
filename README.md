@@ -150,6 +150,11 @@ I recomend Render since is easy to use
 - GitHub: [@githubhandle](https://github.com/benja27)
 - LinkedIn: [LinkedIn](http://www.linkedin.com/in/BenjaMendez2699)
 
+👤 **Adeyemi Olusola**
+
+- GitHub: [@emarkees](https://github.com/emarkees)
+- LinkedIn: [LinkedIn](http://www.linkedin.com/in/adeyemi-olusola)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
