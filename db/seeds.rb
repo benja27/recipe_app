@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-rails g model recipe_food food:references recipe:references quantity:float
+# rails g scaffold recipe_food food:references recipe:references quantity:float
 
 # Crear usuarios de ejemplo
 # Crear recetas de ejemplo para los usuarios
@@ -24,13 +24,22 @@ rails g model recipe_food food:references recipe:references quantity:float
 
 
 
-14.times do |i|
-  Food.create!(
-    name: "Ingrediente #{i}",
-    measurement_unit: 'gramos',
-    price: 2.5,
-    quantity: 200,
-    user: User.first
+# 14.times do |i|
+#   Food.create!(
+#     name: "Ingrediente #{i}",
+#     measurement_unit: 'gramos',
+#     price: 2.5,
+#     quantity: 200,
+#     user: User.first
+#   )
+# end
+
+
+35.times do |i|
+  RecipeFood.create!(
+    food_id: Food.pluck(:id).sample,  # Asigna un food_id aleatorio de la tabla foods
+    recipe_id: Recipe.pluck(:id).sample,  # Asigna un recipe_id aleatorio de la tabla recipes
+    quantity: rand(1.0..10.0)  # Cantidad aleatoria entre 1.0 y 10.0
   )
 end
 

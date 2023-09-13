@@ -9,7 +9,10 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1 or /recipes/1.json
   def show
-    
+    # @test = RecipeFood.where(recipe_id: @recipe.id).each do |recipe_food|
+    #   recipe_food.food = Food.find(recipe_food.food_id)
+    # end
+    @test = RecipeFood.where(recipe_id: @recipe.id)
   end
 
   # GET /recipes/new

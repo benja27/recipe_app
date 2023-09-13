@@ -32,12 +32,13 @@
   <div class='d-flex  justify-content-between pb-3' >
     <button type="button" class="btn btn-primary">Generate shopping list</button>
     <button type="button" class="btn btn-primary">Add ingredient</button>
+    <%= button_to "hola", root_path, class: "btn btn-light"  %>
   </div>
   
 
   <hr class='bg-white py-1 rounded' >
 
-  <div class="table-responsive check">
+  <div class="table-responsive check mb-3">
     <table class="table table-primary">
       <thead>
         <tr>
@@ -48,25 +49,32 @@
         </tr>
       </thead>
       <tbody>
+        
 
-        <tr class="">
-          <td scope="row">R1C1</td>
-          <td>R1C2</td>
+        <% @test.each do |ele| %>
+          <tr class="">
 
-          <td> 
-            value
-          </td>            
+            <td scope="row"> <%= ele.food.name%>  </td>
+            <td><%= ele.food.quantity%>  <%= ele.food.measurement_unit %>  </td>
 
-          <td class='d-flex gap-3 justify-content-center ' >  
-            <a href="#">modify</a>           
-            <a href="modify">remove</a>
-          </td>
-        </tr>        
+            <td> 
+              value
+            </td>            
+
+            <td class='d-flex gap-3 justify-content-center ' >  
+              <a href="#">modify</a>           
+              <a href="modify">remove</a>
+            </td>
+          </tr>    
+        <%end%>
+
+
       </tbody>
     </table>
   </div>
   
 
-  <hr>
+  
+  
 
 </div>
