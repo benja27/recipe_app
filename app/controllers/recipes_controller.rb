@@ -9,6 +9,7 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1 or /recipes/1.json
   def show
+    
   end
 
   # GET /recipes/new
@@ -47,6 +48,27 @@ class RecipesController < ApplicationController
       end
     end
   end
+
+  # update_public
+  def update_public
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update(recipe_params)
+      format.html { redirect_to recipe_url(@recipe), notice: "Recipe was successfully updated." }
+      # redirect_to @recipe, notice: 'El estado público se ha actualizado correctamente.'
+    else
+      render :edit
+    end
+  end
+  
+  private
+  
+  def recipe_params
+    params.require(:recipe).permit(:public)
+  end
+  
+
+
+
 
   # DELETE /recipes/1 or /recipes/1.json
   def destroy

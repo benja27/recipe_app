@@ -73,3 +73,5 @@ group :test do
 end
 
 gem "devise", "~> 4.9"
+
+# gem "hotwire", "~> 0.1.4"
