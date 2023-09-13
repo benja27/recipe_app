@@ -30,9 +30,8 @@
   </h3>
 
   <div class='d-flex  justify-content-between pb-3' >
-    <button type="button" class="btn btn-primary">Generate shopping list</button>
-    <button type="button" class="btn btn-primary">Add ingredient</button>
-    <%= button_to "hola", root_path, class: "btn btn-light"  %>
+    <button type="button" class="btn btn-primary">Generate shopping list</button>    
+    <%= link_to "Add ingredient", new_recipe_food_path, class: 'btn btn-light' %>
   </div>
   
 
@@ -62,8 +61,9 @@
             </td>            
 
             <td class='d-flex gap-3 justify-content-center ' >  
-              <a href="#">modify</a>           
-              <a href="modify">remove</a>
+              <%= link_to "Edit this recipe food", edit_recipe_food_path(ele) %>
+              <%# <a href="modify">remove</a> %>
+              <%= button_to "Destroy this recipe food", ele, method: :delete %>
             </td>
           </tr>    
         <%end%>
