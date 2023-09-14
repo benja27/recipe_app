@@ -52,24 +52,18 @@ class RecipesController < ApplicationController
     end
   end
 
-  # update_public
-  def update_public
-    @recipe = Recipe.find(params[:id])
-    if @recipe.update(recipe_params)
-      format.html { redirect_to recipe_url(@recipe), notice: "Recipe was successfully updated." }
-      # redirect_to @recipe, notice: 'El estado público se ha actualizado correctamente.'
-    else
-      render :edit
-    end
+  def public_recipes
+    @recipes = Recipe.where(public: true)    
+    # @recipes = Recipe.all    
   end
+
   
   private
   
   def recipe_params
     params.require(:recipe).permit(:public)
-  end
+  end 
   
-
 
 
 

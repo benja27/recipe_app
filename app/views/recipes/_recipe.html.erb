@@ -49,21 +49,26 @@
       </thead>
       <tbody>
         
-
+          
         <% @test.each do |ele| %>
+
+
           <tr class="">
 
-            <td scope="row"> <%= ele.food.name%>  </td>
-            <td><%= ele.food.quantity%>  <%= ele.food.measurement_unit %>  </td>
+            <td scope="row"> <%= ele.food.name %>  </td>
+            <td>
+            <%= ele.food.quantity   %> 
+            <%= ele.food.measurement_unit %>  
+            </td>
+
 
             <td> 
-              value
+              <%= ele.food.price %>
             </td>            
 
             <td class='d-flex gap-3 justify-content-center ' >  
-              <%= link_to "Edit this recipe food", edit_recipe_food_path(ele) %>
-              <%# <a href="modify">remove</a> %>
-              <%= button_to "Destroy this recipe food", ele, method: :delete %>
+              <%= link_to "Modify", edit_recipe_food_path(ele) %>              
+              <%= button_to "Remove", ele, method: :delete %>
             </td>
           </tr>    
         <%end%>
