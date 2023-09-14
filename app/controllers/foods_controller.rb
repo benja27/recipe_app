@@ -1,5 +1,5 @@
 class FoodsController < ApplicationController
-  before_action :set_food, only: %i[ show edit update destroy ]
+  before_action :set_food, only: %i[show edit update destroy]
 
   # GET /foods or /foods.json
   def index
@@ -7,27 +7,25 @@ class FoodsController < ApplicationController
   end
 
   # GET /foods/1 or /foods/1.json
-  def show
-  end
+  def show; end
 
   # GET /foods/new
   def new
     @food = Food.new
-    @measurement_units = ["Libra", "Kilogramo", "Onza", "Litro", "Mililitro","Grams"]
+    @measurement_units = %w[Libra Kilogramo Onza Litro Mililitro Grams]
   end
 
   # GET /foods/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /foods or /foods.json
   def create
     @food = Food.new(food_params)
-    
+
 
     respond_to do |format|
       if @food.save
-        format.html { redirect_to food_url(@food), notice: "Food was successfully created." }
+        format.html { redirect_to food_url(@food), notice: 'Food was successfully created.' }
         format.json { render :show, status: :created, location: @food }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +38,7 @@ class FoodsController < ApplicationController
   def update
     respond_to do |format|
       if @food.update(food_params)
-        format.html { redirect_to food_url(@food), notice: "Food was successfully updated." }
+        format.html { redirect_to food_url(@food), notice: 'Food was successfully updated.' }
         format.json { render :show, status: :ok, location: @food }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -59,12 +57,12 @@ class FoodsController < ApplicationController
     if @food.recipe_food.empty?
       # Si no hay referencias, puedes eliminar el registro
       @food.destroy
-      redirect_to foods_url, notice: "Food was successfully destroyed."
+      redirect_to foods_url, notice: 'Food was successfully destroyed.'
     else
       # Si hay referencias, muestra un mensaje de error o maneja la situación de acuerdo a tus necesidades
       @food.recipe_food.destroy_all
       @food.destroy
-      redirect_to foods_url, alert: "Food is still referenced in recipe foods and cannot be deleted."
+      redirect_to foods_url, alert: 'Food is still referenced in recipe foods and cannot be deleted.'
     end
 
     # respond_to do |format|
@@ -74,13 +72,14 @@ class FoodsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_food
-      @food = Food.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def food_params
-      params.require(:food).permit(:name, :measurement_unit, :price, :quantity, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_food
+    @food = Food.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def food_params
+    params.require(:food).permit(:name, :measurement_unit, :price, :quantity, :user_id)
+  end
 end
