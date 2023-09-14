@@ -13,6 +13,7 @@ class FoodsController < ApplicationController
   # GET /foods/new
   def new
     @food = Food.new
+    @measurement_units = ["Libra", "Kilogramo", "Onza", "Litro", "Mililitro","Grams"]
   end
 
   # GET /foods/1/edit
@@ -22,6 +23,7 @@ class FoodsController < ApplicationController
   # POST /foods or /foods.json
   def create
     @food = Food.new(food_params)
+    
 
     respond_to do |format|
       if @food.save
