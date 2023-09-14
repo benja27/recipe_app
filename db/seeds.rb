@@ -11,6 +11,9 @@
 # Crear usuarios de ejemplo
 # Crear recetas de ejemplo para los usuarios
 
+
+
+
 7.times do |i|
   Recipe.create!(
     name: "Receta #{i}",
