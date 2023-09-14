@@ -9,6 +9,10 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1 or /recipes/1.json
   def show
+    # @test = RecipeFood.where(recipe_id: @recipe.id).each do |recipe_food|
+    #   recipe_food.food = Food.find(recipe_food.food_id)
+    # end
+    @test = RecipeFood.where(recipe_id: @recipe.id)
   end
 
   # GET /recipes/new
@@ -48,8 +52,25 @@ class RecipesController < ApplicationController
     end
   end
 
+  def public_recipes
+    @recipes = Recipe.where(public: true)    
+    # @recipes = Recipe.all    
+  end
+
+  
+  
+  
+  def recipe_params
+    params.require(:recipe).permit(:public)
+  end 
+  
+
+
+
   # DELETE /recipes/1 or /recipes/1.json
   def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe.recipe_food.destroy_all    
     @recipe.destroy
 
     respond_to do |format|

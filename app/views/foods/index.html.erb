@@ -4,6 +4,8 @@
   <button> <%= link_to "Add food", new_food_path, class: '' %> </button>
 </div>
 
+
+
 <div id="foods">
 
   <div class="">
@@ -18,6 +20,7 @@
           </tr>
         </thead>
         <tbody>
+        
           <%@foods.each do |food| %>
             <tr class="">            
               <td> 
@@ -25,8 +28,8 @@
                </td>
               <td> <%= food.measurement_unit%> </td>
               <td> $ <%= food.price%> </td>              
-              <td>
-                <%= link_to "Delete", new_food_path, method: "delete" , class: '' %>
+              <td>                
+                <%= button_to "Delete", food, method: :delete %>
               </td>
             </tr>          
           <%end%>
@@ -40,18 +43,6 @@
   
   </div>
 
-
-
-  <%# <% @foods.each do |food| %>
-
-
-    <%# <%= render food %>   %>
-
-    <%# <p> %>
-      <%# <%= link_to "Show this food", food %> %>
-    <%# </p> %>
-
-  <%# <% end %> %> %>
 
 </div>
 

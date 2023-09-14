@@ -97,6 +97,7 @@ GEM
     erubi (1.12.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    hotwire (0.1.4)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.2.1)
@@ -230,6 +231,7 @@ DEPENDENCIES
   capybara
   debug
   devise (~> 4.9)
+  hotwire (~> 0.1.4)
   importmap-rails
   jbuilder
   pg

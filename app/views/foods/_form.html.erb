@@ -16,26 +16,25 @@
     <%= form.text_field :name %>
   </div>
 
+  <%# <div> %>
+    <%# <%= form.label :measurement_unit, style: "display: block" %> %>
+    <%# <%= form.text_field :measurement_unit %> %>
+  <%# </div> %>
+
   <div>
-    <%= form.label :measurement_unit, style: "display: block" %>
-    <%= form.text_field :measurement_unit %>
-  </div>
+  <%= form.label :measurement_unit, style: "display: block" %>
+  <%= form.select :measurement_unit, @measurement_units, {}, class: "form-control" %>
+</div>
 
   <div>
     <%= form.label :price, style: "display: block" %>
     <%= form.text_field :price %>
   </div>
 
-  <div>
+  <div class='mb-3' >
     <%= form.label :quantity, style: "display: block" %>
     <%= form.number_field :quantity %>
-  </div>
-
-  <%# <div>
-    <%# <%= form.label :user_id, style: "display: block" %> %>
-    <%# <%= form.text_field :user_id %> %>
-  <%# </div> %> %>
-
+  </div>    
   
 
   <%= form.hidden_field :user_id, value: current_user.id %>

@@ -13,6 +13,7 @@ class FoodsController < ApplicationController
   # GET /foods/new
   def new
     @food = Food.new
+    @measurement_units = ["Libra", "Kilogramo", "Onza", "Litro", "Mililitro","Grams"]
   end
 
   # GET /foods/1/edit
@@ -22,6 +23,7 @@ class FoodsController < ApplicationController
   # POST /foods or /foods.json
   def create
     @food = Food.new(food_params)
+    
 
     respond_to do |format|
       if @food.save
@@ -49,12 +51,26 @@ class FoodsController < ApplicationController
 
   # DELETE /foods/1 or /foods/1.json
   def destroy
-    @food.destroy
+    # @food.destroy
+    @food = Food.find(params[:id])
 
-    respond_to do |format|
-      format.html { redirect_to foods_url, notice: "Food was successfully destroyed." }
-      format.json { head :no_content }
+
+
+    if @food.recipe_food.empty?
+      # Si no hay referencias, puedes eliminar el registro
+      @food.destroy
+      redirect_to foods_url, notice: "Food was successfully destroyed."
+    else
+      # Si hay referencias, muestra un mensaje de error o maneja la situación de acuerdo a tus necesidades
+      @food.recipe_food.destroy_all
+      @food.destroy
+      redirect_to foods_url, alert: "Food is still referenced in recipe foods and cannot be deleted."
     end
+
+    # respond_to do |format|
+    #   format.html { redirect_to foods_url, notice: "Food was successfully destroyed." }
+    #   format.json { head :no_content }
+    # end
   end
 
   private
