@@ -17,7 +17,13 @@
               <h2 class=""> Recipe <%=recipe.id%> </h2>
           <%end%>
 
-        <%= button_to 'remove this recipe', recipe, method: :delete, class: 'btn btn-light' %>        
+          <%= form_with(model: recipe, method: :delete, local: true, html: { class: 'form-inline', data: { confirm: 'Are you sure?' } }) do |form| %>
+  <%= form.submit 'Remove this recipe', class: 'btn btn-light' %>
+<% end %>
+
+
+
+        
         
 
       </div>

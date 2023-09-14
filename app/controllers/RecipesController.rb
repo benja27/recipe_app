@@ -58,7 +58,7 @@ class RecipesController < ApplicationController
   end
 
   
-  private
+  
   
   def recipe_params
     params.require(:recipe).permit(:public)
@@ -69,6 +69,8 @@ class RecipesController < ApplicationController
 
   # DELETE /recipes/1 or /recipes/1.json
   def destroy
+    @recipe = Recipe.find(params[:id])
+
     @recipe.destroy
 
     respond_to do |format|
