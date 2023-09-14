@@ -1,8 +1,17 @@
 Rails.application.routes.draw do
+  # config/routes.rb
+  post '/recipes/update_switch_state', to: 'recipes#update_switch_state'
+
   get '/public_recipes', to: 'recipes#public_recipes'
   resources :recipe_foods
   resources :foods
-  resources :recipes     
+    # config/routes.rb
+  resources :recipes do
+    member do
+      post 'update_switch_state'
+    end
+  end
+ 
   devise_for :users 
   # get '/public_recipes', to: 'recipes#public_recipes'
   # get '/public_recipes', to: 'recipes#index'
