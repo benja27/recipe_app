@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
     new_state = params[:new_state] == 'true' # Convert the string to a boolean
 
     # Update the state in the database
-    recipe.update(is_public: new_state)
+    recipe.update(public: new_state)
 
     if recipe.save
       render json: { message: 'Switch state updated successfully' }
