@@ -9,7 +9,7 @@
       <h4> <%= recipe.name %> </h4>
       <h4> <%=  User.find(recipe.user_id).email   %> </h4>
     </div>
-
+        
     <div>      
       <h5> Total food items: <%= RecipeFood.where(recipe_id: recipe.id).count %> </h5>
       <h5> 
