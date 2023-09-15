@@ -11,6 +11,11 @@ Rails.application.routes.draw do
       post 'update_switch_state'
     end
   end
+  resources :shopping_lists, only: [:index] do
+    collection do
+      get 'general_shopping_list'
+    end
+  end  
  
   devise_for :users 
   # get '/public_recipes', to: 'recipes#public_recipes'
