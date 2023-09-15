@@ -8,6 +8,8 @@
     <%= f.text_field :name %>
   </div>
 
+  <%= puts "nombre recibido en el formulario: #{params[:name] }" %>
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
