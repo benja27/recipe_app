@@ -29,10 +29,10 @@
     steps go here...
   </h3>
 
-  <div class='d-flex  justify-content-between pb-3' >
-    <button type="button" class="btn btn-primary">Generate shopping list</button>   
+  <div class='d-flex  justify-content-between pb-3' >    
+    <%= link_to "Generate shopping list", shopping_lists_index_path(recipe_id: @recipe.id  ), class: "btn btn-success" %>
     
-    <%= link_to "Add ingredient", new_recipe_food_path( recipe_id: @recipe.id ), class: 'btn btn-light' %>
+    <%= link_to "Add ingredient", new_recipe_food_path( recipe_id: @recipe.id  ), class: 'btn btn-light' %>
   </div>
   
 
@@ -58,13 +58,13 @@
 
             <td scope="row"> <%= ele.food.name %>  </td>
             <td>
-            <%= ele.food.quantity   %> 
+            <%= ele.quantity   %> 
             <%= ele.food.measurement_unit %>  
             </td>
 
 
             <td> 
-              <%= ele.food.price %>
+              <%= ele.food.price * ele.quantity %>
             </td>            
 
             <td class='d-flex gap-3 justify-content-center ' >  
