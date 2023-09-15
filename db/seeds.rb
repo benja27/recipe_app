@@ -30,9 +30,9 @@ end
 14.times do |i|
   Food.create!(
     name: "Ingrediente #{i}",
-    measurement_unit: 'gramos',
+    measurement_unit: 'grams',
     price: 2.5,
-    quantity: 200,
+    quantity: 100,
     user: User.first
   )
 end
