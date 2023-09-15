@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'shopping_lists/index', to: "shopping_lists#index"
+  get 'shopping_lists/show'
   # config/routes.rb
   post '/recipes/update_switch_state', to: 'recipes#update_switch_state'
 

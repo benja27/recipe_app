@@ -1,0 +1,74 @@
+<div class='mb-5' >
+  <h1 class="text-center" >ShoppingLists</h1>
+
+</div>
+
+
+<% @food_summary = Hash.new(0) %>
+
+  <% @foods.each do |recipe| %>
+    <% @food_summary[recipe.food_id]  += recipe.quantity  %>
+  <%end %>
+
+  <%@food_details = [] %>
+
+  <% @total_prices %>
+
+  <%@food_summary.each do |food_id, total_quantity|  %>
+    <%  @food = Food.find_by( id: food_id )  %>
+    <% @food_details << { food_name: @food.name, total_quantity: total_quantity, total_price: @food.price * total_quantity  } %>
+  <%end %>
+
+  <% @total_prices = @food_details.map { |food_detail| food_detail[:total_price] }%>
+  <% @suma_total_price = @total_prices.sum %>
+  
+
+
+<div class='d-flex justify-content-between' >
+    <h4 class='mb-3' >
+      Amount of items:  <%= @food_details.count%>
+    </h4>
+
+    <h4>
+      Total money: <%= @suma_total_price%>
+    </h4>
+
+</div>   
+
+<div>
+  
+  
+
+  <div class="table-responsive">
+    <table class="table table-primary">
+      <thead>
+        <tr>
+          <th scope="col">Food</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">total Price</th>
+        </tr>
+      </thead>
+      <%# =============== %>
+      <tbody>
+
+
+        <% @food_details.each do |ele|  %>        
+
+          
+        <tr class="">
+          <td scope="row"> <%= "#{ele[:food_name]}" %> </td>
+          <td><%= "#{ ele[:total_quantity] }" %></td>          
+          <td><%= " #{ ele[:total_price]  } " %></td>
+        </tr>      
+
+        <%end%>
+        
+      </tbody>
+
+      <%# ============ %>
+    </table>
+  </div>
+  
+</div>
+
+ 
