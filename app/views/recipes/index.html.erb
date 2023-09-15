@@ -1,0 +1,48 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="d-flex align-items-center justify-content-between px-1 mb-3">
+
+  <h1 class="underline" >Recipes</h1>
+  
+  <%= link_to "New recipe", new_recipe_path, class: 'btn btn-light' %>
+
+</div>
+
+<div id="recipes">
+  <% @recipes.each do |recipe| %>
+    <div class="border border-3 mb-4 d-flex px-4 py-4">   
+      <div class="w-50 d-flex flex-column gap-4 align-items-center">
+        
+          <%= link_to recipe do %>
+              <h2 class=""> Recipe <%=recipe.id%> </h2>
+          <%end%>
+
+          <%= form_with(model: recipe, method: :delete, local: true, html: { class: 'form-inline', data: { confirm: 'Are you sure?' } }) do |form| %>
+  <%= form.submit 'Remove this recipe', class: 'btn btn-light' %>
+<% end %>
+
+
+
+        
+        
+
+      </div>
+
+      <div class="w-50">
+        <h4>Description of the recipe</h4>
+        <p><%= recipe.description %>
+        </p>      
+      </div>
+
+      
+      
+    </div>    
+  <% end %>
+</div>
+
+
+
+
+
+
+

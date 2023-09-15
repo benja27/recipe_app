@@ -5,12 +5,54 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css'>    
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="min-vh-100 bg-dark text-white" >
+      <div class="container">
+        <p class="alert d-none"><%= alert %></p>      
+      
+          <div class="bg-success" >
+            <% if user_signed_in? %>
+              <div class="nav d-flex justify-content-between bg-dark py-3">                 
+
+                  <%=link_to foods_path do%> 
+                    <button type="button" class="btn btn-primary">Foods</button>
+                  <%end%>
+                  <%=link_to recipes_path do%> 
+                    <button type="button" class="btn btn-primary">Recipes</button>
+                  <%end%>
+                  <%=link_to public_recipes_path do%> 
+
+                    <button type="button" class="btn btn-primary">Public recipes</button>
+                  <%end%>
+
+                  <%= form_tag(destroy_user_session_path, method: :delete) do %>
+                    <%= submit_tag('Cerrar sesión', class: 'btn btn-danger' ) %>
+                  <% end %>
+
+              </div>
+            <% end %>       
+
+          </div>
+          <%= javascript_include_tag 'custom' %>
+        <%= yield %>
+      </div>
+
+      
+    
+    
+      
+    
+    
+    
+      
+
+    </div>  
+
+
   </body>
 </html>
