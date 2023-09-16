@@ -2,8 +2,8 @@ class ShoppingListsController < ApplicationController
   def index
     # @foods= Food.where(user_id: current_user.id)
     # @foods= RecipeFood.where(recipe_id: params[ :recipe_id ])
-    
-    
+
+
     user_recipes = Recipe.where(user_id: current_user.id)
 
     # Obtén los ids de las recetas del usuario actual
@@ -14,8 +14,5 @@ class ShoppingListsController < ApplicationController
     @foods = RecipeFood.where(recipe_id: user_recipe_ids)
   end
 
-  def show
-  end
+  def show; end
 end
-
-
