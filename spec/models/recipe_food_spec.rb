@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe RecipeFood, type: :model do
-
   let(:food) { FactoryBot.create(:food) }
   let(:recipe) { FactoryBot.create(:recipe) }
 
   it 'is valid with valid attributes' do
-    recipe_food = FactoryBot.build(:recipe_food, food:, recipe:)
+    FactoryBot.build(:recipe_food, food:, recipe:)
+  end
 
   it 'is valid with valid attributes' do
     User.create(
@@ -42,7 +42,6 @@ RSpec.describe RecipeFood, type: :model do
   end
 
   it 'is not valid without a quantity' do
-
     recipe_food = FactoryBot.build(:recipe_food, food:, recipe:, quantity: nil)
     expect(recipe_food).to_not be_valid
   end
@@ -102,5 +101,4 @@ RSpec.describe RecipeFood, type: :model do
 
     expect(recipe_food).to_not be_valid
   end
-
 end
