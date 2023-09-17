@@ -62,6 +62,7 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 end
 
+
 require 'factory_bot'
 
 RSpec.configure do |config|
@@ -82,3 +83,5 @@ RSpec.configure do |config|
 end
 
 Capybara.default_driver = :selenium_chrome
+
+

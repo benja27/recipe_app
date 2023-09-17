@@ -27,6 +27,7 @@ class RecipesController < ApplicationController
     # @test = RecipeFood.where(recipe_id: @recipe.id).each do |recipe_food|
     #   recipe_food.food = Food.find(recipe_food.food_id)
     # end
+    authorize! :read, @recipe
     @test = RecipeFood.where(recipe_id: @recipe.id)
   end
 
@@ -36,7 +37,9 @@ class RecipesController < ApplicationController
   end
 
   # GET /recipes/1/edit
-  def edit; end
+  def edit
+    authorize! :read, @recipe
+  end
 
   # POST /recipes or /recipes.json
   def create

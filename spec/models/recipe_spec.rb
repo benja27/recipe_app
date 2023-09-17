@@ -1,14 +1,32 @@
 require 'rails_helper'
 
 RSpec.describe Recipe, type: :model do
+
   let(:user) { FactoryBot.create(:user) }
 
   it 'is valid with valid attributes' do
     recipe = FactoryBot.build(:recipe, user:)
+
+  it 'is valid with valid attributes' do
+    user = User.create(
+      name: 'John Doe',
+      email: 'john@example.com',
+      password: 'password'
+    )
+
+    recipe = Recipe.new(
+      name: 'Example Recipe',
+      preparation_time: 30,
+      cooking_time: 60,
+      description: 'A delicious recipe.',
+      user:
+    )
+
     expect(recipe).to be_valid
   end
 
   it 'is not valid without a name' do
+
     recipe = FactoryBot.build(:recipe, name: nil, user:)
     expect(recipe).to_not be_valid
   end
@@ -100,4 +118,44 @@ RSpec.describe Recipe, type: :model do
     recipe_food = FactoryBot.create(:recipe_food, recipe:)
     expect(recipe.recipe_food).to include(recipe_food)
   end
+
+    recipe = Recipe.new(
+      preparation_time: 30,
+      cooking_time: 60,
+      description: 'A delicious recipe.'
+    )
+
+    expect(recipe).to_not be_valid
+  end
+
+  it 'is not valid without preparation time' do
+    recipe = Recipe.new(
+      name: 'Example Recipe',
+      cooking_time: 60,
+      description: 'A delicious recipe.'
+    )
+
+    expect(recipe).to_not be_valid
+  end
+
+  it 'is not valid without cooking time' do
+    recipe = Recipe.new(
+      name: 'Example Recipe',
+      preparation_time: 30,
+      description: 'A delicious recipe.'
+    )
+
+    expect(recipe).to_not be_valid
+  end
+
+  it 'is not valid without a description' do
+    recipe = Recipe.new(
+      name: 'Example Recipe',
+      preparation_time: 30,
+      cooking_time: 60
+    )
+
+    expect(recipe).to_not be_valid
+  end
+
 end
