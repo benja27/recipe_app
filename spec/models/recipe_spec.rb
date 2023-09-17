@@ -3,8 +3,6 @@ require 'rails_helper'
 RSpec.describe Recipe, type: :model do
   let(:user) { FactoryBot.create(:user) }
 
-
-
   it 'is not valid with a negative preparation_time' do
     recipe = FactoryBot.build(:recipe, preparation_time: -1, user:)
     expect(recipe).to_not be_valid
@@ -51,7 +49,6 @@ RSpec.describe Recipe, type: :model do
   end
 end
 
-
 RSpec.describe Recipe, type: :model do
   let(:user) { FactoryBot.create(:user) }
 
@@ -81,8 +78,6 @@ RSpec.describe Recipe, type: :model do
     recipe_food = FactoryBot.create(:recipe_food, recipe:)
     expect(recipe.recipe_food).to include(recipe_food)
   end
-
-
 
   it 'is not valid without preparation time' do
     recipe = Recipe.new(
