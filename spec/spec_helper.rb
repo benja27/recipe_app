@@ -97,5 +97,3 @@ end
 
 
 # En spec/rails_helper.rb o spec/spec_helper.rb
-
-

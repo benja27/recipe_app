@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Food, type: :model do
-
   let(:food) { FactoryBot.create(:food) }
 
   it 'valdate the presense of name' do
