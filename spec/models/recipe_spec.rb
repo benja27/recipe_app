@@ -22,7 +22,7 @@ RSpec.describe Recipe, type: :model do
   end
 
   it "is not valid with a long name" do
-    name = "A" * 21
+    name = "A" * 51
     recipe = FactoryBot.build(:recipe, name: name, user: user)
     expect(recipe).to_not be_valid
   end
