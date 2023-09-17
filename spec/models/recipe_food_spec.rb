@@ -37,7 +37,6 @@ RSpec.describe RecipeFood, type: :model do
       quantity: 2
     )
 
-
     expect(recipe_food).to be_valid
   end
 
@@ -92,7 +91,6 @@ RSpec.describe RecipeFood, type: :model do
     recipe_food = FactoryBot.create(:recipe_food, food:, recipe:)
     expect(recipe_food.food).to eq(food)
   end
-
 
   it 'is not valid with a negative quantity' do
     recipe_food = RecipeFood.new(

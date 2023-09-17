@@ -31,12 +31,10 @@ RSpec.describe User, type: :model do
     expect(user).to_not be_valid
   end
 
-
   it 'fails when password is less than 2 characters' do
     user.password = 't'
     expect(user).to_not be_valid
   end
-
 
   it 'name should be present' do
     user = User.new(name: 'John Doe', email: 'john@example.com', password: 'password')

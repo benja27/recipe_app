@@ -95,5 +95,4 @@ RSpec.configure do |config|
   #   Kernel.srand config.seed
 end
 
-
 # En spec/rails_helper.rb o spec/spec_helper.rb

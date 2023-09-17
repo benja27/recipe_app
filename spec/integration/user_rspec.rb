@@ -4,9 +4,6 @@ RSpec.describe User do
   # include Devise::Test::ControllerHelpers
   let(:user) { FactoryBot.create(:user) }
 
-  before do
-  end
-
   it 'try to go to root and is redirected to log in if user has not loggued in' do
     visit root_path
     expect(current_path).to eq(new_user_session_path)

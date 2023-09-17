@@ -52,8 +52,6 @@ class FoodsController < ApplicationController
     # @food.destroy
     @food = Food.find(params[:id])
 
-
-
     if @food.recipe_food.empty?
       # Si no hay referencias, puedes eliminar el registro
       @food.destroy
@@ -64,11 +62,6 @@ class FoodsController < ApplicationController
       @food.destroy
       redirect_to foods_url, alert: 'Food is still referenced in recipe foods and cannot be deleted.'
     end
-
-    # respond_to do |format|
-    #   format.html { redirect_to foods_url, notice: "Food was successfully destroyed." }
-    #   format.json { head :no_content }
-    # end
   end
 
   private
