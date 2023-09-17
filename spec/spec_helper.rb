@@ -94,3 +94,8 @@ RSpec.configure do |config|
   #   # as the one that triggered the failure.
   #   Kernel.srand config.seed
 end
+
+
+# En spec/rails_helper.rb o spec/spec_helper.rb
+
+

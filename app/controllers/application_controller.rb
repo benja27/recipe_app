@@ -7,8 +7,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
 
+
+
   rescue_from CanCan::AccessDenied do |exception|
     flash[:alert] = "Access denied."
     redirect_to root_path
   end
+
 end
