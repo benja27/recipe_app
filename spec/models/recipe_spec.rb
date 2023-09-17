@@ -89,6 +89,11 @@ RSpec.describe Recipe, type: :model do
       recipe = FactoryBot.build(:recipe, description: 'A' * 2, user:)
       expect(recipe).to_not be_valid
     end
+  end
+
+
+  RSpec.describe Recipe, type: :model do
+    let(:user) { FactoryBot.create(:user) }
 
     it 'is not valid with a long description' do
       description = 'A' * 201
