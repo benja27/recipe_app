@@ -8,7 +8,6 @@ RSpec.describe RecipeFood, type: :model do
     FactoryBot.build(:recipe_food, food:, recipe:)
   end
 
-
   it 'is not valid without a quantity' do
     recipe_food = FactoryBot.build(:recipe_food, food:, recipe:, quantity: nil)
     expect(recipe_food).to_not be_valid
