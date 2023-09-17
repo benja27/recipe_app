@@ -67,3 +67,11 @@ require 'factory_bot'
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
 end
+
+require 'capybara/rspec'
+
+RSpec.configure do |config|
+  config.include Capybara::DSL
+end
+
+Capybara.default_driver = :selenium_chrome
