@@ -61,6 +61,5 @@ RSpec.describe RecipeFoodsController, type: :controller do
         expect(response).to redirect_to(recipe_food_url(recipe_food))
       end
     end
-  end  
-  
+  end
 end

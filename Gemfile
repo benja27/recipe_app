@@ -76,6 +76,6 @@ gem 'devise', '~> 4.9'
 
 # gem "hotwire", "~> 0.1.4"
 
-gem "rspec-rails", "~> 6.0"
-gem "factory_bot_rails", "~> 6.2"
-gem "faker", "~> 3.2"
+gem 'factory_bot_rails', '~> 6.2'
+gem 'faker', '~> 3.2'
+gem 'rspec-rails', '~> 6.0'

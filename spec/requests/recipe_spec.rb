@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe RecipesController, type: :controller do
   include Devise::Test::ControllerHelpers
-  let(:user) { FactoryBot.create(:user) } 
+  let(:user) { FactoryBot.create(:user) }
   let(:recipe) { FactoryBot.create(:recipe) }
 
   describe 'GET #index' do
@@ -73,8 +73,7 @@ RSpec.describe RecipesController, type: :controller do
     end
   end
 
-  describe 'DELETE #destroy' do    
-
+  describe 'DELETE #destroy' do
     it 'redirects to the recipes list' do
       sign_in user
       delete :destroy, params: { id: recipe.to_param }

@@ -5,6 +5,5 @@ FactoryBot.define do
     user_id { create(:user).id }
     cooking_time { Faker::Number.between(from: 1, to: 100) }
     description { Faker::Lorem.paragraph }
-    
   end
 end
