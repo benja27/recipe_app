@@ -1,0 +1,32 @@
+<h1>General Shopping List</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Food Item</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% shopping_list = Hash.new(0) %>
+    <% @recipes.each do |recipe| %>
+      <% recipe.foods.each do |food| %>
+        <% shopping_list[food.name] += 1 %>
+      <% end %>
+    <% end %>
+    <% total_items = 0 %>
+    <% total_price = 0 %>
+    <% shopping_list.each do |food_item, quantity| %>
+      <tr>
+        <td><%= food_item %></td>
+        <td><%= quantity %></td>
+        <% price = Food.find_by(name: food_item)&.price || 0 %>
+        <td>$<%= (quantity * price).round(2) %></td>
+      </tr>
+      <% total_items += quantity %>
+      <% total_price += quantity * price %>
+    <% end %>
+  </tbody>
+</table>
+<p>Total Food Items: <%= total_items %></p>
+<p>Total Price: $<%= total_price.round(2) %></p>

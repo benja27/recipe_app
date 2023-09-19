@@ -1,0 +1,27 @@
+
+  <h1 class='text-center' >Public Recipes</h1>  
+
+
+<% @recipes.each do |recipe|  %>
+  <div class='border border-white py-4 d-flex align-items-center justify-content-around mb-4' >
+
+    <div>      
+      <h4> <%= recipe.name %> </h4>      
+      <h4> <%=  User.find(recipe.user_id).name   %> </h4>
+    </div>
+        
+    <div>      
+      <h5> Total food items: <%= RecipeFood.where(recipe_id: recipe.id).count %> </h5>
+      <h5> 
+        Total price:   
+        <%= recipe.recipe_food.sum { |food| food.food.price } %>
+      </h5>
+    </div>
+
+  </div>
+ 
+  
+  
+
+
+<%end%>

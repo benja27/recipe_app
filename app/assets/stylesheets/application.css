@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+.check,
+.check * {
+  border: 1px solid white;
+}
